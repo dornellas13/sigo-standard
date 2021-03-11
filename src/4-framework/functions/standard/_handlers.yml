@@ -1,0 +1,10 @@
+getAllStandard:
+    handler: ${self:custom.functionsDirectory}/standard/getAll.handler
+    events:
+      - http:
+          path: api/standards
+          method: GET
+          cors: true 
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId: ${ssm:restApiCognitoAuthorizerId}
