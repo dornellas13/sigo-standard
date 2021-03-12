@@ -2,7 +2,7 @@ getAllStandard:
     handler: ${self:custom.functionsDirectory}/standard/getAll.handler
     events:
       - http:
-          path: api/standards
+          path: standards
           method: GET
           cors: true 
           authorizer:
