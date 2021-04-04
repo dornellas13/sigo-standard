@@ -2,8 +2,7 @@ import { Entity } from '#enterprise/domain/entity'
 export class Standard extends Entity {
   id!: string
   name!: string
-  rating?: number
-  createdAt?: string
+  createdAt!: string
   updatedAt?: string
 
   constructor (obj: Partial<Standard>) {

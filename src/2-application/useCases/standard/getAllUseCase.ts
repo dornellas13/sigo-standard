@@ -7,8 +7,8 @@ import { StandardDto } from '#application/dto/standard'
 export class GetAllStandardUseCase implements UseCaseBase<StandardDto[]> {
   @Inject(IStandardRepositoryToken) private readonly standardRepository!: IStandardRepository
 
-  run (): StandardDto[] {
-    const standards = this.standardRepository.getAll()
+  async run (): Promise<StandardDto[]> {
+    const standards = await this.standardRepository.getAll()
     return standards.map(standard => new StandardDto(standard))
   }
 }

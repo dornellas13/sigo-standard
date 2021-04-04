@@ -11,7 +11,7 @@ export class StandardController {
 
   async getAll (): Promise<OutputBase<GetAllStandardOutput[]>> {
     try {
-      const standards = this.getAllStandardUseCase.run()
+      const standards = await this.getAllStandardUseCase.run()
       console.info('[I] STANDARDS DATA', standards)
       return new OutputBase({
         data: standards.map(standard => new GetAllStandardOutput(standard))

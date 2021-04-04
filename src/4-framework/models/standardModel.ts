@@ -29,10 +29,6 @@ const schema = {
     type: String,
     required: true
   },
-  rating: {
-    type: String,
-    required: true
-  },
   createdAt: {
     type: String,
     default: new Date()
@@ -46,10 +42,11 @@ const schema = {
 export const StandardModel: StandardSchema = dynamoose.model<
   StandardDataSchema,
   StandarKeySchema>(
-    'SIGO',
+    'Standards',
     new Schema(schema, {
       timestamps: true,
       saveUnknown: true,
-      useDocumentTypes: false
+      useDocumentTypes: false,
+      throughput: 'ON_DEMAND'
     })
   )
